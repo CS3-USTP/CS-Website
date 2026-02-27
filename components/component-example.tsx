@@ -6,19 +6,6 @@ import {
   Example,
   ExampleWrapper,
 } from "@/components/example"
-import {
-  AlertDialog,
-  AlertDialogAction,
-  AlertDialogCancel,
-  AlertDialogContent,
-  AlertDialogDescription,
-  AlertDialogFooter,
-  AlertDialogHeader,
-  AlertDialogMedia,
-  AlertDialogTitle,
-  AlertDialogTrigger,
-} from "@/components/ui/alert-dialog"
-import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import {
   Card,
@@ -65,7 +52,7 @@ import {
   SelectValue,
 } from "@/components/ui/select"
 import { Textarea } from "@/components/ui/textarea"
-import { PlusIcon, BluetoothIcon, MoreVerticalIcon, FileIcon, FolderIcon, FolderOpenIcon, FileCodeIcon, MoreHorizontalIcon, FolderSearchIcon, SaveIcon, DownloadIcon, EyeIcon, LayoutIcon, PaletteIcon, SunIcon, MoonIcon, MonitorIcon, UserIcon, CreditCardIcon, SettingsIcon, KeyboardIcon, LanguagesIcon, BellIcon, MailIcon, ShieldIcon, HelpCircleIcon, FileTextIcon, LogOutIcon } from "lucide-react"
+import { MoreVerticalIcon, FileIcon, FolderIcon, FolderOpenIcon, FileCodeIcon, MoreHorizontalIcon, FolderSearchIcon, SaveIcon, DownloadIcon, EyeIcon, LayoutIcon, PaletteIcon, SunIcon, MoonIcon, MonitorIcon, UserIcon, CreditCardIcon, SettingsIcon, KeyboardIcon, LanguagesIcon, BellIcon, MailIcon, ShieldIcon, HelpCircleIcon, FileTextIcon, LogOutIcon } from "lucide-react"
 
 export function ComponentExample() {
   return (
@@ -78,54 +65,76 @@ export function ComponentExample() {
 
 function CardExample() {
   return (
-    <Example title="Card" className="items-center justify-center">
-      <Card className="relative w-full max-w-sm overflow-hidden pt-0">
-        <div className="bg-primary absolute inset-0 z-30 aspect-video opacity-50 mix-blend-color" />
-        <img
-          src="https://images.unsplash.com/photo-1604076850742-4c7221f3101b?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-          alt="Photo by mymind on Unsplash"
-          title="Photo by mymind on Unsplash"
-          className="relative z-20 aspect-video w-full object-cover brightness-60 grayscale"
-        />
-        <CardHeader>
-          <CardTitle>Observability Plus is replacing Monitoring</CardTitle>
-          <CardDescription>
-            Switch to the improved way to explore your data, with natural
-            language. Monitoring will no longer be available on the Pro plan in
-            November, 2025
-          </CardDescription>
-        </CardHeader>
-        <CardFooter>
-          <AlertDialog>
-            <AlertDialogTrigger asChild>
-              <Button>
-                <PlusIcon data-icon="inline-start" />
-                Show Dialog
-              </Button>
-            </AlertDialogTrigger>
-            <AlertDialogContent size="sm">
-              <AlertDialogHeader>
-                <AlertDialogMedia>
-                  <BluetoothIcon
-                  />
-                </AlertDialogMedia>
-                <AlertDialogTitle>Allow accessory to connect?</AlertDialogTitle>
-                <AlertDialogDescription>
-                  Do you want to allow the USB accessory to connect to this
-                  device?
-                </AlertDialogDescription>
-              </AlertDialogHeader>
-              <AlertDialogFooter>
-                <AlertDialogCancel>Don&apos;t allow</AlertDialogCancel>
-                <AlertDialogAction>Allow</AlertDialogAction>
-              </AlertDialogFooter>
-            </AlertDialogContent>
-          </AlertDialog>
-          <Badge variant="secondary" className="ml-auto">
-            Warning
-          </Badge>
-        </CardFooter>
-      </Card>
+    <Example title="Card" className="justify-center">
+      <div className="grid w-full max-w-2xl gap-4">
+        <Card
+          mode="decorative"
+          size="sm"
+          padding="compact"
+          radius="xl"
+          border="thin"
+          plate
+          windowDots="none"
+          asChild
+        >
+          <a href="#" className="inline-flex items-center justify-between gap-4 px-5">
+            <span className="text-sm font-medium">Home</span>
+            <span aria-hidden="true">→</span>
+          </a>
+        </Card>
+
+        <Card
+          mode="decorative"
+          radius="xl"
+          border="thin"
+          plate
+          windowDots="visible"
+          windowDotsPosition="right"
+          dotsPalette="default"
+          headerDivider
+          interactive="hover"
+          className="pt-12"
+        >
+          <CardHeader>
+            <CardTitle className="text-2xl uppercase">Be at the Bleeding Edge of Computing</CardTitle>
+          </CardHeader>
+          <CardContent className="space-y-4">
+            <div className="h-24 rounded-xl border border-panel-border bg-panel-dot-2/70" />
+            <p className="text-sm leading-relaxed">
+              The University of Science and Technology of Southern Philippines - Cagayan de Oro Campus offers one of the strongest undergraduate computing programs.
+            </p>
+          </CardContent>
+        </Card>
+
+        <Card
+          mode="decorative"
+          radius="lg"
+          border="thin"
+          plate
+          windowDots="visible"
+          windowDotsPosition="left"
+          dotsPalette="muted"
+          padding="compact"
+          interactive="focus"
+          className="pt-12"
+        >
+          <CardHeader>
+            <CardTitle className="uppercase">Our Achievements</CardTitle>
+          </CardHeader>
+          <CardContent className="grid gap-3 sm:grid-cols-2">
+            <div className="rounded-xl border border-panel-border bg-background p-3">
+              <div className="mb-2 h-24 rounded-lg bg-panel-dot-3/70" />
+              <h4 className="font-semibold uppercase">ACM-ICPC Regional Finalists</h4>
+              <p className="text-muted-foreground mt-1 text-xs">Top teams competing in international programming contests.</p>
+            </div>
+            <div className="rounded-xl border border-panel-border bg-background p-3">
+              <div className="mb-2 h-24 rounded-lg bg-panel-dot-1/30" />
+              <h4 className="font-semibold uppercase">IEEE Xtreme Competitors</h4>
+              <p className="text-muted-foreground mt-1 text-xs">24-hour algorithmic coding marathon participants.</p>
+            </div>
+          </CardContent>
+        </Card>
+      </div>
     </Example>
   )
 }
